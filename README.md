@@ -35,32 +35,14 @@ limitations under the License.
 
 > Compute the Cartesian power for a single-precision floating-point strided array.
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/blas-ext-base-scartesian-power
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var scartesianPower = require( '@stdlib/blas-ext-base-scartesian-power' );
+import scartesianPower from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-scartesian-power@deno/mod.js';
 ```
 
 #### scartesianPower( order, N, k, x, strideX, out, LDO )
@@ -68,7 +50,7 @@ var scartesianPower = require( '@stdlib/blas-ext-base-scartesian-power' );
 Computes the Cartesian power for a single-precision floating-point strided array.
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
 
 var x = new Float32Array( [ 1.0, 2.0 ] );
 var out = new Float32Array( 8 );
@@ -90,7 +72,7 @@ The function has the following parameters:
 The `N`, `k`, and stride parameters determine which elements in the strided arrays are accessed at runtime. For example, to compute the Cartesian power of every other element:
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
 
 var x = new Float32Array( [ 1.0, 0.0, 2.0, 0.0 ] );
 var out = new Float32Array( 8 );
@@ -102,7 +84,7 @@ scartesianPower( 'row-major', 2, 2, x, 2, out, 2 );
 Note that indexing is relative to the first index. To introduce an offset, use [`typed array`][mdn-typed-array] views.
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
 
 // Initial array:
 var x0 = new Float32Array( [ 0.0, 1.0, 2.0, 3.0 ] );
@@ -126,7 +108,7 @@ scartesianPower( 'row-major', 2, 2, x1, 1, out, 2 );
 Computes the Cartesian power for a single-precision floating-point strided array using alternative indexing semantics.
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
 
 var x = new Float32Array( [ 1.0, 2.0 ] );
 var out = new Float32Array( 8 );
@@ -150,7 +132,7 @@ The function has the following parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameters support indexing semantics based on starting indices. For example, to access only the last two elements:
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
 
 var x = new Float32Array( [ 0.0, 0.0, 1.0, 2.0 ] );
 var out = new Float32Array( 8 );
@@ -183,10 +165,10 @@ scartesianPower.ndarray( 2, 2, x, 1, 2, out, 2, 1, 0 );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
-var Float32Array = require( '@stdlib/array-float32' );
-var pow = require( '@stdlib/math-base-special-pow' );
-var scartesianPower = require( '@stdlib/blas-ext-base-scartesian-power' );
+import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
+import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@deno/mod.js';
+import scartesianPower from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-scartesian-power@deno/mod.js';
 
 var N = 2;
 var k = 3;
@@ -206,145 +188,7 @@ console.log( out );
 
 <!-- C interface documentation. -->
 
-* * *
 
-<section class="c">
-
-## C APIs
-
-<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
-
-<section class="intro">
-
-</section>
-
-<!-- /.intro -->
-
-<!-- C usage documentation. -->
-
-<section class="usage">
-
-### Usage
-
-```c
-#include "stdlib/blas/ext/base/scartesianpower.h"
-```
-
-#### stdlib_strided_scartesian_power( order, N, k, \*X, strideX, \*Out, LDO )
-
-Computes the Cartesian power for a single-precision floating-point strided array.
-
-```c
-#include "stdlib/blas/base/shared.h"
-
-const float x[] = { 1.0f, 2.0f };
-float out[ 8 ];
-
-stdlib_strided_scartesian_power( CblasRowMajor, 2, 2, x, 1, out, 2 );
-```
-
-The function accepts the following arguments:
-
--   **order**: `[in] CBLAS_LAYOUT` storage layout.
--   **N**: `[in] CBLAS_INT` number of indexed elements.
--   **k**: `[in] CBLAS_INT` power.
--   **X**: `[in] float*` input array.
--   **strideX**: `[in] CBLAS_INT` stride length for `X`.
--   **Out**: `[out] float*` output array.
--   **LDO**: `[in] CBLAS_INT` stride length between successive contiguous vectors of the matrix `Out` (a.k.a., leading dimension of `Out`). For row-major order, must be greater than or equal to `max(1,k)`. For column-major order, must be greater than or equal to `max(1,N^k)`.
-
-```c
-void stdlib_strided_scartesian_power( const CBLAS_LAYOUT order, const CBLAS_INT N, const CBLAS_INT k, const float *X, const CBLAS_INT strideX, float *Out, const CBLAS_INT LDO );
-```
-
-<!-- lint disable maximum-heading-length -->
-
-#### stdlib_strided_scartesian_power_ndarray( N, k, \*X, strideX, offsetX, \*Out, strideOut1, strideOut2, offsetOut )
-
-<!-- lint enable maximum-heading-length -->
-
-Computes the Cartesian power for a single-precision floating-point strided array using alternative indexing semantics.
-
-```c
-const float x[] = { 1.0f, 2.0f };
-float out[ 8 ];
-
-stdlib_strided_scartesian_power_ndarray( 2, 2, x, 1, 0, out, 2, 1, 0 );
-```
-
-The function accepts the following arguments:
-
--   **N**: `[in] CBLAS_INT` number of indexed elements.
--   **k**: `[in] CBLAS_INT` power.
--   **X**: `[in] float*` input array.
--   **strideX**: `[in] CBLAS_INT` stride length for `X`.
--   **offsetX**: `[in] CBLAS_INT` starting index for `X`.
--   **Out**: `[out] float*` output array.
--   **strideOut1**: `[in] CBLAS_INT` stride length of the first dimension of `Out`.
--   **strideOut2**: `[in] CBLAS_INT` stride length of the second dimension of `Out`.
--   **offsetOut**: `[in] CBLAS_INT` starting index for `Out`.
-
-```c
-void stdlib_strided_scartesian_power_ndarray( const CBLAS_INT N, const CBLAS_INT k, const float *X, const CBLAS_INT strideX, const CBLAS_INT offsetX, float *Out, const CBLAS_INT strideOut1, const CBLAS_INT strideOut2, const CBLAS_INT offsetOut );
-```
-
-</section>
-
-<!-- /.usage -->
-
-<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-<section class="notes">
-
-</section>
-
-<!-- /.notes -->
-
-<!-- C API usage examples. -->
-
-<section class="examples">
-
-### Examples
-
-```c
-#include "stdlib/blas/ext/base/scartesianpower.h"
-#include "stdlib/blas/base/shared.h"
-#include <stdio.h>
-#include <math.h>
-
-int main( void ) {
-    // Create a strided input array:
-    const float x[] = { 1.0f, 2.0f };
-
-    // Specify the number of indexed elements and power:
-    const int N = 2;
-    const int k = 2;
-
-    // Create an output array (N^k tuples, each tuple has k elements):
-    float out[ 8 ];
-
-    // Specify strides:
-    const int strideX = 1;
-    const int LDO = 2;
-
-    // Compute the Cartesian power:
-    stdlib_strided_scartesian_power( CblasRowMajor, N, k, x, strideX, out, LDO );
-
-    // Print the result:
-    const int len = (int)pow( N, k );
-    for ( int i = 0; i < len; i++ ) {
-        printf( "out[ %i ] = ( %f, %f )\n", i, out[ i*2 ], out[ (i*2)+1 ] );
-    }
-}
-```
-
-</section>
-
-<!-- /.examples -->
-
-</section>
-
-<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -363,7 +207,7 @@ int main( void ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -426,7 +270,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/blas-ext-base-scartesian-power/main/LICENSE
 
-[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32
+[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32/tree/deno
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
