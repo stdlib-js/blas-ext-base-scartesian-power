@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-05-11)
+## Unreleased (2026-06-06)
 
 <section class="features">
 
@@ -16,12 +16,23 @@
 
 <!-- /.features -->
 
+<section class="bug-fixes">
+
+### Bug Fixes
+
+-   [`9dd3f73`](https://github.com/stdlib-js/stdlib/commit/9dd3f73544d43392c6ff8d5f290e0e466ac0c812) - rename header files to align with project conventions
+
+</section>
+
+<!-- /.bug-fixes -->
+
 <section class="commits">
 
 ### Commits
 
 <details>
 
+-   [`9dd3f73`](https://github.com/stdlib-js/stdlib/commit/9dd3f73544d43392c6ff8d5f290e0e466ac0c812) - **fix:** rename header files to align with project conventions _(by Athan Reines)_
 -   [`e16eb11`](https://github.com/stdlib-js/stdlib/commit/e16eb11c02f1861dad6f5681d76b9e3af9eb7978) - **chore:** minor clean-up [(#11951)](https://github.com/stdlib-js/stdlib/pull/11951) _(by Philipp Burckhardt)_
 -   [`ed858b1`](https://github.com/stdlib-js/stdlib/commit/ed858b109614dcd701ba2d7cb7ce8715a500814a) - **feat:** add `blas/ext/base/scartesian-power` [(#11923)](https://github.com/stdlib-js/stdlib/pull/11923) _(by Muhammad Haris, Athan Reines)_
 

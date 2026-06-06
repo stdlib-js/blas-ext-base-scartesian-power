@@ -28,7 +28,7 @@ var tryRequire = require( '@stdlib/utils-try-require' );
 
 // VARIABLES //
 
-var scartesianPower = tryRequire( resolve( __dirname, './../lib/scartesianpower.native.js' ) );
+var scartesianPower = tryRequire( resolve( __dirname, './../lib/scartesian_power.native.js' ) );
 var opts = {
 	'skip': ( scartesianPower instanceof Error )
 };

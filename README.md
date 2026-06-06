@@ -227,7 +227,7 @@ console.log( out );
 ### Usage
 
 ```c
-#include "stdlib/blas/ext/base/scartesianpower.h"
+#include "stdlib/blas/ext/base/scartesian_power.h"
 ```
 
 #### stdlib_strided_scartesian_power( order, N, k, \*X, strideX, \*Out, LDO )
@@ -307,7 +307,7 @@ void stdlib_strided_scartesian_power_ndarray( const CBLAS_INT N, const CBLAS_INT
 ### Examples
 
 ```c
-#include "stdlib/blas/ext/base/scartesianpower.h"
+#include "stdlib/blas/ext/base/scartesian_power.h"
 #include "stdlib/blas/base/shared.h"
 #include <stdio.h>
 #include <math.h>
